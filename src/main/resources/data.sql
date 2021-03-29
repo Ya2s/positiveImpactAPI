@@ -2,9 +2,8 @@ DROP TABLE IF EXISTS DonorProject;
 DROP TABLE IF EXISTS Projectgoal cascade;
 DROP TABLE IF EXISTS Donor cascade;
 DROP TABLE IF EXISTS Project cascade;
-/* Retravailler ces DROP car là j'ai mis des cascade à tout-va car j'avais une erreur de dépedance entre table lors de leur suppression */
- 
-/* FIXME : Pourquoi je crée les 2 tables ci-dessous, mais pour les 2 autres j'ai eu une erreur me disant que déjà créées ? */
+/* TODO : Retravailler ces DROP car là j'ai mis des cascade à tout-va car j'avais une erreur de dépedance entre table lors de leur suppression */
+/* FXIME : Création de tables -> cf Trello */
 
 
 CREATE TABLE Donor (
@@ -51,4 +50,8 @@ INSERT INTO Project (id, title, description, country, city, required_donation_va
 INSERT INTO Donor_Project (value_euro, message, donor_id, project_id) VALUES 
   	(5, 'Merci pour ce que vous faites', 1, 1),
   	(13, 'Gracias', 3, 2);
+  	
+
+ INSERT INTO Administrator (id, first_name, last_name, birth_date, phone_number, mail, password) VALUES
+  (1, 'Yass', 'Ine', NOW(), '06 03 45 23 04', 'admin@positive-impact.com', 'admin');
   
