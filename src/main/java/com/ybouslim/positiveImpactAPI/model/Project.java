@@ -1,6 +1,5 @@
 package com.ybouslim.positiveImpactAPI.model;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -15,13 +14,11 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Formula;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import lombok.Data;
 
 /*
  * All projects of the association Positive Impact.
- * A project is in progress if the donation_goal is not "atteint"
+ * A project is in progress if the required donation value is not obtained
  * 
  */
 
@@ -56,10 +53,7 @@ public class Project {
 	
 	
 	// Current total of donations to this project. The default value is 0 (= nobody give a donation).
-	/* 
-	 * FIXME : J'utilise un champ calculé, mais est-ce la bonne façon ? De plus il n'y a pas moyen d'attaquer direction le champ
-	 * 'donations' sans passer par un requête qui parcourt toutes les donations ?... 
-	 */
+	// TODO : cf Trello
 	@Formula("Select SUM(donation.value_euro) from Donor_Project donation where donation.project_id = id")
 	private Integer donationsTotal = 0;	
 

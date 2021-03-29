@@ -18,8 +18,10 @@ public class DonationController {
 	@Autowired
 	private DonationService service;
 	
+	//TODO : cf Trello
 	@Autowired
 	private DonorService serviceDonor;
+	
 	
 	@GetMapping("/donations/{idDonor}")
 	public Iterable<DonorProject> getDonationsDonor(@PathVariable("idDonor") final Long id) {
@@ -33,7 +35,7 @@ public class DonationController {
 			return null;
 		}
 		//TODO : C'est mieux de passer par une URL "/donations/" (ID en cookie ou autre mais ne se voit pas)
-		//FIXME : Ok d'utiliser un deuxième service dans ce controller ?
+		
 	}
 	
 
